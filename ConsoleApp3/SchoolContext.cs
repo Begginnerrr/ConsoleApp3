@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsoleApp3.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace ConsoleApp2
 {
     public class SchoolContext : DbContext
     { 
+        /*
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
+        */
+
+        public DbSet<Printer> Printers { get; set; }
 
         public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
         {

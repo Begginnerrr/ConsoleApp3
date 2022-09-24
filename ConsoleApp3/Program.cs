@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using static K4os.Compression.LZ4.Engine.Pubternal;
 using Microsoft.EntityFrameworkCore.Design;
 using MySql.EntityFrameworkCore.Extensions;
+using ConsoleApp3.Data;
+using Microsoft.VisualBasic;
+using ConsoleApp3.Repository;
 
 
 
@@ -32,11 +35,71 @@ IHost hostBuilder = Host.CreateDefaultBuilder(args)
     .Build();
 hostBuilder.Run();
 */
+
+/*
+Printer printer = new Printer();
+printer.PrinterId = 2;
+printer.PrinterName = "Testing Printer2";
+printer.PrinterDescription = "This is printerDescription 2";
+printer.PrinterLocation = "Office B";
+
+bool createSuccess = await PrinterRepository.CreatePrinterAsync(printer);
+if(createSuccess == true)
+{
+    Console.WriteLine("This was succesfull");
+}
+else
+{
+    Console.WriteLine("Something went wrong");
+}
+*/
+
+List<Printer> listofPrinters = PrinterRepository.GetPrinters();
+foreach (Printer prnt in listofPrinters)
+{
+    Console.WriteLine(prnt.PrinterId);
+}
+
+Printer print = await PrinterRepository.GetPrinterByIdAsync(1);
+Console.WriteLine(print.PrinterName);
+
+/*
+Printer printer2 = new Printer();
+printer2.PrinterId = 1;
+printer2.PrinterName = "New kind of printer";
+printer2.PrinterDescription = "Has no description";
+printer2.PrinterLocation = "Office D";
+
+bool isUpdated = await PrinterRepository.UpdatePrinterAsync(printer2);
+if (isUpdated == true)
+{
+    Console.WriteLine("This was succesfull");
+}
+else
+{
+    Console.WriteLine("Something went wrong");
+}
+
+
+bool isDeleted = await PrinterRepository.DeletePostAsync(1);
+if (isDeleted == true)
+{
+    Console.WriteLine("This was succesfull");
+}
+else
+{
+    Console.WriteLine("Something went wrong");
+}
+*/
+
+
+/*
+
 Console.WriteLine("Maybe this will be reached??");
 
 Request request = new Request();
 request.refreshData();
-
+*/
 /*
 
 IHost host = Host.CreateDefaultBuilder(args)

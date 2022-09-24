@@ -11,6 +11,7 @@ namespace ConsoleApp3
     {
         public void refreshData() {
 
+            /*
             using (var context = new SchoolContext())
             {
 
@@ -23,6 +24,7 @@ namespace ConsoleApp3
                 context.SaveChanges();
                 Console.WriteLine("This was reached");
             }
+            */
         }
     }
 }
