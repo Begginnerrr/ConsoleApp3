@@ -20,22 +20,22 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal async static Task<Printer> GetPrinterByIdAsync(int postId)
+        internal static Printer GetPrinterById(int postId)
         {
             using (var db = new SchoolContext())
             {
-                return await db.Printers.FirstOrDefaultAsync( printer => printer.PrinterId == postId);
+                return db.Printers.FirstOrDefault(printer => printer.PrinterId == postId);
             }
         }
 
-        internal async static Task<bool> CreatePrinterAsync(Printer printerToAdd)
+        internal static bool CreatePrinter(Printer printerToAdd)
         {
             using (var db = new SchoolContext())
             {
                 try
                 {
-                    await db.Printers.AddAsync(printerToAdd);
-                    return await db.SaveChangesAsync() >= 1;
+                     db.Printers.Add(printerToAdd);
+                    return db.SaveChanges() >= 1;
 
                 }
                 catch (Exception ex)
@@ -45,7 +45,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal async static Task<bool> UpdatePrinterAsync(Printer printerToUpdate)
+        internal static bool UpdatePrinter(Printer printerToUpdate)
         {
             using (var db = new SchoolContext())
             {
@@ -53,7 +53,7 @@ namespace ConsoleApp3.Repository
                 {
                     db.Printers.Update(printerToUpdate);
 
-                    return await db.SaveChangesAsync() >= 1;
+                    return db.SaveChanges() >= 1;
 
                 }
                 catch (Exception ex)
@@ -63,17 +63,17 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal async static Task<bool> DeletePostAsync(int printerId)
+        internal static bool DeletePost(int printerId)
         {
             using (var db = new SchoolContext())
             {
                 try
                 {
-                    Printer printerToDelete = await GetPrinterByIdAsync(printerId);
+                    Printer printerToDelete = GetPrinterById(printerId);
 
                     db.Remove(printerToDelete);
 
-                    return await db.SaveChangesAsync() >= 1;
+                    return db.SaveChanges() >= 1;
 
                 }
                 catch (Exception ex)

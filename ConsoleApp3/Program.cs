@@ -18,6 +18,14 @@ using ConsoleApp3.Repository;
 //MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
 
 Console.WriteLine("Hello, World!");
+
+DrawMenu menu = new DrawMenu();
+menu.drawingMenu();
+menu.startProgram();
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------
 /*
 IHost hostBuilder = Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration((context, builder) =>
@@ -54,6 +62,7 @@ else
 }
 */
 
+/*
 List<Printer> listofPrinters = PrinterRepository.GetPrinters();
 foreach (Printer prnt in listofPrinters)
 {
@@ -62,7 +71,7 @@ foreach (Printer prnt in listofPrinters)
 
 Printer print = await PrinterRepository.GetPrinterByIdAsync(1);
 Console.WriteLine(print.PrinterName);
-
+*/
 /*
 Printer printer2 = new Printer();
 printer2.PrinterId = 1;
