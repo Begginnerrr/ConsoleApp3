@@ -20,6 +20,7 @@ namespace ConsoleApp3
         private int commandInput;
         private int dataInput;
         private string stringDataInput;
+        private bool createSuccess;
 
         public void drawingMenu()
         {
@@ -27,8 +28,9 @@ namespace ConsoleApp3
             Console.WriteLine("2 - List printer by ID");
             Console.WriteLine("3 - Add printers");
             Console.WriteLine("4 - Edit printer Details");
-            Console.WriteLine("5 - Start Printing");
-            Console.WriteLine("6 - Exit the program");
+            Console.WriteLine("5 - Delete printer");
+            Console.WriteLine("6 - Start Printing");
+            Console.WriteLine("7 - Exit the program");
             Console.WriteLine("Type in the command number into a console: ");
         }
 
@@ -79,7 +81,7 @@ namespace ConsoleApp3
                         printer1.PrinterDescription = Console.ReadLine();
                         Console.WriteLine("Input printer Location: ");
                         printer1.PrinterLocation = Console.ReadLine();
-                        bool createSuccess =  PrinterRepository.CreatePrinter(printer1);
+                        createSuccess =  PrinterRepository.CreatePrinter(printer1);
                         if (createSuccess == true)
                         {
                             Console.WriteLine("This was succesfull");
@@ -88,6 +90,62 @@ namespace ConsoleApp3
                         {
                             Console.WriteLine("Something went wrong");
                         }
+                        break;
+                    case 4:
+                        Printer printer2 = new Printer();
+                        Console.WriteLine("Input the printers ID: ");
+                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
+                        if (!checkingValue) Console.WriteLine("Invalid value entered");
+                        printer2 = PrinterRepository.GetPrinterById(dataInput);
+                        Console.WriteLine("Selected printer Stats");
+                        Console.WriteLine("Printer ID: " + printer2.PrinterId);
+                        Console.WriteLine("Printer Name: " + printer2.PrinterName);
+                        Console.WriteLine("Printer Description: " + printer2.PrinterDescription);
+                        Console.WriteLine("Printer Location :" + printer2.PrinterLocation);
+
+                        Console.WriteLine("Fill out printer data: ");
+                        Console.WriteLine("Input printer Name: ");
+                        stringDataInput = Console.ReadLine();
+                        printer2.PrinterName = stringDataInput;
+                        Console.WriteLine("Input printer Description: ");
+                        printer2.PrinterDescription = Console.ReadLine();
+                        Console.WriteLine("Input printer Location: ");
+                        printer2.PrinterLocation = Console.ReadLine();
+                        createSuccess = PrinterRepository.UpdatePrinter(printer2);
+                        if (createSuccess == true)
+                        {
+                            Console.WriteLine("This was succesfull");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Something went wrong");
+                        }
+                        break;
+                    case 5:
+                        Console.WriteLine("Input the printers ID: ");
+                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
+                        if (!checkingValue) Console.WriteLine("Invalid value entered");
+
+                       createSuccess = PrinterRepository.DeletePost(dataInput);
+                        if (createSuccess == true)
+                        {
+                            Console.WriteLine("This was succesfull");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Something went wrong");
+                        }
+                        
+
+                        break;
+                    case 7:
+
+                        Console.WriteLine("Have a good day!");
+                        Console.WriteLine("Program  will stop shortly");
+
+                        exit = true;
+                        Thread.Sleep(200);
+
                         break;
                     default:
                         Console.WriteLine("Selected command doesn't exist");
