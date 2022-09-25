@@ -1,4 +1,5 @@
-﻿using ConsoleApp3.Data;
+﻿using ConsoleApp3.Commands;
+using ConsoleApp3.Data;
 using ConsoleApp3.Repository;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,6 @@ namespace ConsoleApp3
 
         public void startProgram()
         {
-           
 
             while (exit == false)
             {
@@ -46,96 +46,25 @@ namespace ConsoleApp3
                 switch (commandInput)
                 {
                     case 1:
-                        Console.WriteLine("Listing all Printers");
-                        List<Printer> listofPrinters = PrinterRepository.GetPrinters();
-                        foreach (Printer prnt in listofPrinters)
-                        {
-                            Console.WriteLine("Printer ID: "+prnt.PrinterId);
-                            Console.WriteLine("Printer Name: "+prnt.PrinterName);
-                            Console.WriteLine("Printer Description: "+prnt.PrinterDescription);
-                            Console.WriteLine("Printer Location :"+prnt.PrinterLocation);
-                        }
+                        ListAllPrinters listAllPrinters = new ListAllPrinters();
+                        listAllPrinters.getallprinters();
                         break;
                     case 2:
-                        Console.WriteLine("Input the printers ID: ");
-                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
-                        if (!checkingValue) Console.WriteLine("Invalid value entered");
-                        Printer print = PrinterRepository.GetPrinterById(dataInput);
-                        Console.WriteLine("Selected printer Stats");
-                        Console.WriteLine("Printer ID: " + print.PrinterId);
-                        Console.WriteLine("Printer Name: " + print.PrinterName);
-                        Console.WriteLine("Printer Description: " + print.PrinterDescription);
-                        Console.WriteLine("Printer Location :" + print.PrinterLocation);
+                        ListAllPrinters listAllPrinters1 = new ListAllPrinters();
+                        listAllPrinters1.getPrinterById();
                         break;
                     case 3:
-                        Printer printer1 = new Printer();
-                        Console.WriteLine("Fill out the printer data");
-                        Console.WriteLine("Input printer ID: ");
-                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
-                        if (!checkingValue) Console.WriteLine("Invalid value entered");
-                        printer1.PrinterId = dataInput;
-                        Console.WriteLine("Input printer Name: ");
-                        stringDataInput = Console.ReadLine();
-                        printer1.PrinterName = stringDataInput;
-                        Console.WriteLine("Input printer Description: ");
-                        printer1.PrinterDescription = Console.ReadLine();
-                        Console.WriteLine("Input printer Location: ");
-                        printer1.PrinterLocation = Console.ReadLine();
-                        createSuccess =  PrinterRepository.CreatePrinter(printer1);
-                        if (createSuccess == true)
-                        {
-                            Console.WriteLine("This was succesfull");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Something went wrong");
-                        }
+                        PrinterAdder printerAdder = new PrinterAdder();
+                        printerAdder.addPrinter();
+                        
                         break;
                     case 4:
-                        Printer printer2 = new Printer();
-                        Console.WriteLine("Input the printers ID: ");
-                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
-                        if (!checkingValue) Console.WriteLine("Invalid value entered");
-                        printer2 = PrinterRepository.GetPrinterById(dataInput);
-                        Console.WriteLine("Selected printer Stats");
-                        Console.WriteLine("Printer ID: " + printer2.PrinterId);
-                        Console.WriteLine("Printer Name: " + printer2.PrinterName);
-                        Console.WriteLine("Printer Description: " + printer2.PrinterDescription);
-                        Console.WriteLine("Printer Location :" + printer2.PrinterLocation);
-
-                        Console.WriteLine("Fill out printer data: ");
-                        Console.WriteLine("Input printer Name: ");
-                        stringDataInput = Console.ReadLine();
-                        printer2.PrinterName = stringDataInput;
-                        Console.WriteLine("Input printer Description: ");
-                        printer2.PrinterDescription = Console.ReadLine();
-                        Console.WriteLine("Input printer Location: ");
-                        printer2.PrinterLocation = Console.ReadLine();
-                        createSuccess = PrinterRepository.UpdatePrinter(printer2);
-                        if (createSuccess == true)
-                        {
-                            Console.WriteLine("This was succesfull");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Something went wrong");
-                        }
+                        PrinterEditor printerEditor = new PrinterEditor();
+                        printerEditor.editPrinter();
                         break;
                     case 5:
-                        Console.WriteLine("Input the printers ID: ");
-                        checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
-                        if (!checkingValue) Console.WriteLine("Invalid value entered");
-
-                       createSuccess = PrinterRepository.DeletePost(dataInput);
-                        if (createSuccess == true)
-                        {
-                            Console.WriteLine("This was succesfull");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Something went wrong");
-                        }
-                        
+                        PrinterRemover printerRemover = new PrinterRemover();
+                        printerRemover.deletePrinter();
 
                         break;
                     case 7:
