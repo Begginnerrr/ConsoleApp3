@@ -73,13 +73,13 @@ Printer print = await PrinterRepository.GetPrinterByIdAsync(1);
 Console.WriteLine(print.PrinterName);
 */
 /*
-Printer printer2 = new Printer();
-printer2.PrinterId = 1;
-printer2.PrinterName = "New kind of printer";
-printer2.PrinterDescription = "Has no description";
-printer2.PrinterLocation = "Office D";
+Printer updatedPrinter = new Printer();
+updatedPrinter.PrinterId = 1;
+updatedPrinter.PrinterName = "New kind of printer";
+updatedPrinter.PrinterDescription = "Has no description";
+updatedPrinter.PrinterLocation = "Office D";
 
-bool isUpdated = await PrinterRepository.UpdatePrinterAsync(printer2);
+bool isUpdated = await PrinterRepository.UpdatePrinterAsync(updatedPrinter);
 if (isUpdated == true)
 {
     Console.WriteLine("This was succesfull");
