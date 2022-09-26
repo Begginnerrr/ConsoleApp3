@@ -17,12 +17,13 @@ using ConsoleApp3.Repository;
 
 //MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
 
+/*
 Console.WriteLine("Hello, World!");
 
 DrawMenu menu = new DrawMenu();
 menu.drawingMenu();
 menu.startProgram();
-
+*/
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -100,8 +101,44 @@ else
     Console.WriteLine("Something went wrong");
 }
 */
+/*
+User user = new User();
+user.userId= 2;
+user.name = "user1";
+user.password = "pw";
+user.isAdmin = true;
+
+List<User> listofPrinters = UserRepository.GetUsers();
+foreach (User prnt in listofPrinters)
+{
+    Console.WriteLine(prnt.userId);
+}
+User print = UserRepository.GetUserById(1);
+Console.WriteLine(print.name);
 
 
+/*
+bool success =UserRepository.CreateUser(user);
+if (success)
+{
+    Console.WriteLine("User succesfully created");
+}
+else
+{
+    Console.WriteLine("Things went wrong");
+}
+*/
+/*
+bool success = UserRepository.DeleteUser(2);
+if (success)
+{
+    Console.WriteLine("User succesfully created");
+}
+else
+{
+    Console.WriteLine("Things went wrong");
+}
+*/
 /*
 
 Console.WriteLine("Maybe this will be reached??");
