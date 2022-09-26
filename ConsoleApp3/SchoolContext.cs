@@ -1,4 +1,5 @@
-﻿using ConsoleApp3.Data;
+﻿using ConsoleApp3.AppConfiguration;
+using ConsoleApp3.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace ConsoleApp2
         {
             optionsBuilder
                 .UseMySQL(
-                    "server=localhost;user=root;database=SchoolDb;password=metadata1;port=3306");
+                    Configuration.dbConnectionString);
         }
 
         //  protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=AppDB.db");
