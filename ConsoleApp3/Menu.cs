@@ -65,8 +65,12 @@ namespace ConsoleApp3
                     case 5:
                         PrinterRemover printerRemover = new PrinterRemover();
                         printerRemover.deletePrinter();
-
                         break;
+                    case 6:
+                        PrinterService printerService = new PrinterService();
+                        printerService.pickingPrintFile();
+                        break;
+
                     case 7:
 
                         Console.WriteLine("Have a good day!");
