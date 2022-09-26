@@ -26,6 +26,32 @@ namespace ConsoleApp3.Repository
             }
         }
 
+        internal static User GetUserByName(string UserName)
+        {
+            using (var db = new SchoolContext())
+            {
+                return db.Users.FirstOrDefault(user => user.name == UserName);
+            }
+        }
+
+        internal static bool GetUserByCredentials(string UserName, string pass)
+        {
+            try
+            {
+                using (var db = new SchoolContext())
+                {
+                    var result = db.Users.Where(p => p.name == UserName && p.password == pass);
+                    if (result.Count() == 1) return true;
+                    else return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
         internal static bool CreateUser(User userToAdd)
         {
             using (var db = new SchoolContext())

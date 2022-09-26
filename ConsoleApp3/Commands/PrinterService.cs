@@ -10,12 +10,8 @@ namespace ConsoleApp3.Commands
     
     public class PrinterService
     {
-        private bool checkingValue = false;
-        private int dataInput;
         private string stringDataInput;
-        private bool createSuccess;
-
-
+       
         public void pickingPrintFile()
         {
             Console.WriteLine("Enter File name");

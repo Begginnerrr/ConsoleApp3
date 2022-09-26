@@ -12,18 +12,26 @@ using MySql.EntityFrameworkCore.Extensions;
 using ConsoleApp3.Data;
 using Microsoft.VisualBasic;
 using ConsoleApp3.Repository;
+using ConsoleApp3.Authentification;
 
 
 
 //MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
+bool succesfullLogin = false;
 
-/*
 Console.WriteLine("Hello, World!");
-
-DrawMenu menu = new DrawMenu();
-menu.drawingMenu();
-menu.startProgram();
-*/
+Login login = new Login();
+succesfullLogin = login.authenticateUser();
+if (succesfullLogin)
+{
+    DrawMenu menu = new DrawMenu();
+    menu.drawingMenu();
+    menu.startProgram();
+}
+else
+{
+    Console.WriteLine("Application stopped working, Contact support");
+}
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------
