@@ -17,6 +17,7 @@ namespace ConsoleApp2
         */
 
         public DbSet<Printer> Printers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
         {
