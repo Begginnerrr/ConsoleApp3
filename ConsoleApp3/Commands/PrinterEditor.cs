@@ -34,7 +34,7 @@ namespace ConsoleApp3.Commands
                 Console.WriteLine("Printer ID: " + updatedPrinter.PrinterId);
                 Console.WriteLine("Printer Name: " + updatedPrinter.PrinterName);
                 Console.WriteLine("Printer Description: " + updatedPrinter.PrinterDescription);
-                Console.WriteLine("Printer Location :" + updatedPrinter.PrinterLocation);
+                Console.WriteLine("Printer Location: " + updatedPrinter.PrinterLocation);
                 
                 Console.WriteLine("Fill out printer data: ");
                 Console.WriteLine("Input printer Name: ");

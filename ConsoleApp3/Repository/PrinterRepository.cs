@@ -14,7 +14,7 @@ namespace ConsoleApp3.Repository
     {
         internal static List<Printer> GetPrinters()
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 return db.Printers.ToList();
             }
@@ -22,7 +22,7 @@ namespace ConsoleApp3.Repository
 
         internal static Printer GetPrinterById(int postId)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 return db.Printers.FirstOrDefault(printer => printer.PrinterId == postId);
             }
@@ -30,7 +30,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool CreatePrinter(Printer printerToAdd)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {
@@ -47,7 +47,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool UpdatePrinter(Printer printerToUpdate)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {
@@ -65,7 +65,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool DeletePost(int printerId)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {

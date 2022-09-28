@@ -16,14 +16,20 @@ namespace ConsoleApp3.Commands
 
         public void getallprinters()
         {
-            Console.WriteLine("Listing all Printers");
+            Console.WriteLine("Listing all Printers: ");
             List<Printer> listofPrinters = PrinterRepository.GetPrinters();
             foreach (Printer prnt in listofPrinters)
             {
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("");
                 Console.WriteLine("Printer ID: " + prnt.PrinterId);
+                Console.WriteLine("");
                 Console.WriteLine("Printer Name: " + prnt.PrinterName);
+                Console.WriteLine("");
                 Console.WriteLine("Printer Description: " + prnt.PrinterDescription);
-                Console.WriteLine("Printer Location :" + prnt.PrinterLocation);
+                Console.WriteLine("");
+                Console.WriteLine("Printer Location: " + prnt.PrinterLocation);
+                Console.WriteLine("");
             }
 
         }
@@ -41,10 +47,15 @@ namespace ConsoleApp3.Commands
             if (print != null)
             {
                 Console.WriteLine("Selected printer Stats");
+                Console.WriteLine("");
                 Console.WriteLine("Printer ID: " + print.PrinterId);
+                Console.WriteLine("");
                 Console.WriteLine("Printer Name: " + print.PrinterName);
+                Console.WriteLine("");
                 Console.WriteLine("Printer Description: " + print.PrinterDescription);
+                Console.WriteLine("");
                 Console.WriteLine("Printer Location :" + print.PrinterLocation);
+                Console.WriteLine("");
             }
             else
             {

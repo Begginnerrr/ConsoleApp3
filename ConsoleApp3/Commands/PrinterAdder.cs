@@ -22,20 +22,23 @@ namespace ConsoleApp3.Commands
         public void addPrinter()
         {
             Console.WriteLine("Fill out the printer data");
-            Console.WriteLine("Input the printers ID: ");
             while (!checkingValue)
             {
+                Console.WriteLine("Input the printers ID: ");
                 checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
                 checkingValue = RangeValidation.validate(dataInput);
             }
             printer.PrinterId = dataInput;
             Console.WriteLine("Input printer Name: ");
+            Console.WriteLine("");
             stringDataInput = Console.ReadLine();
             printer.PrinterName = stringDataInput;
             Console.WriteLine("Input printer Description: ");
+            Console.WriteLine("");
             printer.PrinterDescription = Console.ReadLine();
             Console.WriteLine("Input printer Location: ");
+            Console.WriteLine("");
             printer.PrinterLocation = Console.ReadLine();
             createSuccess = PrinterRepository.CreatePrinter(printer);
             if (createSuccess == true)

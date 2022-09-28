@@ -17,13 +17,14 @@ using ConsoleApp3.Authentification;
 
 
 //MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
+
 bool succesfullLogin = false;
 
 Console.WriteLine("Hello, World!");
-Login login = new Login();
-succesfullLogin = login.authenticateUser();
+succesfullLogin = Login.authenticateUser();
 if (succesfullLogin)
 {
+    Console.Clear();
     DrawMenu menu = new DrawMenu();
     menu.drawingMenu();
     menu.startProgram();
@@ -32,6 +33,8 @@ else
 {
     Console.WriteLine("Application stopped working, Contact support");
 }
+
+
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -45,8 +48,8 @@ IHost hostBuilder = Host.CreateDefaultBuilder(args)
     })
     .ConfigureServices((context, services) =>
     {
-        var cns = context.Configuration.GetConnectionString("server=localhost;user=root;database=SchoolDb;password=root;port=3306");
-        services.AddDbContext<SchoolContext>(options => options.UseMySQL("server=localhost;user=root;database=SchoolDb;password=root;port=3306"));
+        var cns = context.Configuration.GetConnectionString("server=localhost;user=root;database=PrinterManagementSystemDB;password=root;port=3306");
+        services.AddDbContext<PrinterManagementContext>(options => options.UseMySQL("server=localhost;user=root;database=PrinterManagementSystemDB;password=root;port=3306"));
        
     })
     .Build();
@@ -167,7 +170,7 @@ IHost host = Host.CreateDefaultBuilder(args)
 .ConfigureServices((context, services) =>
 {
     var cns = context.Configuration.GetConnectionString("MyConnection");
-    services.AddDbContext<SchoolContext>(options => options.UseMySQL("server=localhost;user=root;database=SchoolDb;password=root;port=3306"));
+    services.AddDbContext<PrinterManagementContext>(options => options.UseMySQL("server=localhost;user=root;database=SchoolDb;password=root;port=3306"));
     //.AddHostedService<DiBerieBotMain>();
     ;
 })
