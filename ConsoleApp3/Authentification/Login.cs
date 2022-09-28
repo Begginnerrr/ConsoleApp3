@@ -9,26 +9,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Authentification
 {
-    public class Login
+    public static class Login
     {
-        private bool checkingValue = false;
-        private int dataInput;
-        private string stringDataInput;
-        private string inputName="";
-        private string inputPassword = "";
-        private bool succesfulAuth = false;
+        private static bool checkingLoopValue = false;
+        private static string inputLoginName="";
+        private static string inputLoginPassword = "";
+        private static bool succesfulAuth = false;
 
-        public bool authenticateUser()
+        public static bool authenticateUser()
         {
             Console.WriteLine("Hello, please enter your details:");
-            while (!checkingValue)
+            while (!checkingLoopValue)
             {
-                
                 Console.WriteLine("Input your name: ");
-                inputName = Console.ReadLine();
-                Console.WriteLine("Input your password");
-                inputPassword = Console.ReadLine();
-                succesfulAuth = UserRepository.GetUserByCredentials(inputName, inputPassword);
+                Console.WriteLine("");
+                inputLoginName = Console.ReadLine();
+                Console.WriteLine("Input your password: ");
+                Console.WriteLine("");
+                inputLoginPassword = Console.ReadLine();
+                succesfulAuth = UserRepository.GetUserByCredentials(inputLoginName, inputLoginPassword);
                 if (succesfulAuth == true)
                 {
                     return succesfulAuth;

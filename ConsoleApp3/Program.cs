@@ -21,10 +21,11 @@ using ConsoleApp3.Authentification;
 bool succesfullLogin = false;
 
 Console.WriteLine("Hello, World!");
-Login login = new Login();
-succesfullLogin = login.authenticateUser();
+succesfullLogin = Login.authenticateUser();
 if (succesfullLogin)
 {
+    Console.Clear();
+    Console.WriteLine("Login succesfull");
     DrawMenu menu = new DrawMenu();
     menu.drawingMenu();
     menu.startProgram();
