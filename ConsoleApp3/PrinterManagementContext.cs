@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    public class SchoolContext : DbContext
+    public class PrinterManagementContext : DbContext
     { 
         /*
         public DbSet<Student> Students { get; set; }
@@ -19,12 +19,12 @@ namespace ConsoleApp2
         public DbSet<Printer> Printers { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
+        public PrinterManagementContext(DbContextOptions<PrinterManagementContext> options) : base(options)
         {
              
         }
 
-        public SchoolContext()
+        public PrinterManagementContext()
         {
         }
 

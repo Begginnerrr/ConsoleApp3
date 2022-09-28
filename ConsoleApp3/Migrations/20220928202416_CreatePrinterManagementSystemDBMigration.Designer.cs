@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsoleApp3.Migrations
 {
     [DbContext(typeof(PrinterManagementContext))]
-    [Migration("20220923200814_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220928202416_CreatePrinterManagementSystemDBMigration")]
+    partial class CreatePrinterManagementSystemDBMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,28 @@ namespace ConsoleApp3.Migrations
                     b.HasKey("PrinterId");
 
                     b.ToTable("Printers");
+                });
+
+            modelBuilder.Entity("ConsoleApp3.Data.User", b =>
+                {
+                    b.Property<int>("userId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isAdmin")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("userId");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

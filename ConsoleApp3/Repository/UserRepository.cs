@@ -12,7 +12,7 @@ namespace ConsoleApp3.Repository
     {
         internal static List<User> GetUsers()
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 return db.Users.ToList();
             }
@@ -20,7 +20,7 @@ namespace ConsoleApp3.Repository
 
         internal static User GetUserById(int UserID)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 return db.Users.FirstOrDefault(user => user.userId == UserID);
             }
@@ -28,7 +28,7 @@ namespace ConsoleApp3.Repository
 
         internal static User GetUserByName(string UserName)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 return db.Users.FirstOrDefault(user => user.name == UserName);
             }
@@ -38,7 +38,7 @@ namespace ConsoleApp3.Repository
         {
             try
             {
-                using (var db = new SchoolContext())
+                using (var db = new PrinterManagementContext())
                 {
                     var result = db.Users.Where(p => p.name == UserName && p.password == pass);
                     if (result.Count() == 1) return true;
@@ -54,7 +54,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool CreateUser(User userToAdd)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {
@@ -71,7 +71,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool UpdateUser(User userToUpdate)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {
@@ -89,7 +89,7 @@ namespace ConsoleApp3.Repository
 
         internal static bool DeleteUser(int userID)
         {
-            using (var db = new SchoolContext())
+            using (var db = new PrinterManagementContext())
             {
                 try
                 {

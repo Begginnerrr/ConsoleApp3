@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConsoleApp3.Migrations
 {
-    [DbContext(typeof(SchoolContext))]
+    [DbContext(typeof(PrinterManagementContext))]
     [Migration("20220926141142_Initial3")]
     partial class Initial3
     {
