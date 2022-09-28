@@ -25,7 +25,6 @@ succesfullLogin = Login.authenticateUser();
 if (succesfullLogin)
 {
     Console.Clear();
-    Console.WriteLine("Login succesfull");
     DrawMenu menu = new DrawMenu();
     menu.drawingMenu();
     menu.startProgram();

@@ -14,7 +14,7 @@ namespace ConsoleApp3
     {
     }
 
-    public class DrawMenu    {
+    public class DrawMenu {
 
         private bool exit = false;
         private bool checkingValue;
@@ -40,7 +40,9 @@ namespace ConsoleApp3
 
             while (exit == false)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Input the command: ");
+                Console.ForegroundColor = ConsoleColor.White;
                 checkingValue = int.TryParse(Console.ReadLine(), out commandInput);
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
                 switch (commandInput)
