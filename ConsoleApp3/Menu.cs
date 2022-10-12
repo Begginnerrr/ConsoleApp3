@@ -48,13 +48,13 @@ namespace ConsoleApp3
                 switch (commandInput)
                 {
                     case 1:
-                        ListAllPrinters listAllPrinters = new ListAllPrinters();
+                        PrinterLister listAllPrinters = new PrinterLister();
                         listAllPrinters.getallprinters();
                         menuRedrawing();
                         break;
                     case 2:
-                        ListAllPrinters listAllPrinters1 = new ListAllPrinters();
-                        listAllPrinters1.getPrinterById();
+                        PrinterLister listAllPrinters1 = new PrinterLister();
+                        listAllPrinters1.listPrinterById();
                         menuRedrawing();
                         break;
                     case 3:

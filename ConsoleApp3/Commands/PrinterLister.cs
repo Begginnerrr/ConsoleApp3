@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Commands
 {
-    public class ListAllPrinters
+    public class PrinterLister
     {
         private bool checkingValue = false;
         private int dataInput;
@@ -34,7 +34,7 @@ namespace ConsoleApp3.Commands
 
         }
 
-        public void getPrinterById()
+        public void listPrinterById()
         {
             Console.WriteLine("Input the printers ID: ");
             while (!checkingValue)
