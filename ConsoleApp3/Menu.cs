@@ -50,27 +50,32 @@ namespace ConsoleApp3
                     case 1:
                         ListAllPrinters listAllPrinters = new ListAllPrinters();
                         listAllPrinters.getallprinters();
+                        menuRedrawing();
                         break;
                     case 2:
                         ListAllPrinters listAllPrinters1 = new ListAllPrinters();
                         listAllPrinters1.getPrinterById();
+                        menuRedrawing();
                         break;
                     case 3:
                         PrinterAdder printerAdder = new PrinterAdder();
                         printerAdder.addPrinter();
-                        
+                        menuRedrawing();
                         break;
                     case 4:
                         PrinterEditor printerEditor = new PrinterEditor();
                         printerEditor.editPrinter();
+                        menuRedrawing();
                         break;
                     case 5:
                         PrinterRemover printerRemover = new PrinterRemover();
                         printerRemover.deletePrinter();
+                        menuRedrawing();
                         break;
                     case 6:
                         PrinterService printerService = new PrinterService();
                         printerService.pickingPrintFile();
+                        menuRedrawing();
                         break;
 
                     case 7:
@@ -87,6 +92,16 @@ namespace ConsoleApp3
                         break;
                 }
             }
+        }
+
+        public void menuRedrawing()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press any key to continue...");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadKey();
+            Console.Clear();
+            drawingMenu();
         }
     }
 }
