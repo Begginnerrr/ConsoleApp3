@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.ErrorHandling
 {
-    static class SuccesfullErrorMessage
+    public static class SuccesfullErrorMessage
     {
-        static void printSuccesfullOperationMessage()
+        public static void printSuccesfullOperationMessage()
         {
             Console.WriteLine("Operation successful");
+        }
+        public static void printSuccesfullAddedPrinter()
+        {
+            Console.WriteLine("Printer Added Succesfully");
         }
     }
 }
