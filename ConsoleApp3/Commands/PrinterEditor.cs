@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ConsoleApp3.Commands
 {
@@ -31,22 +32,20 @@ namespace ConsoleApp3.Commands
             if (updatedPrinter != null)
             {
 
-                Console.WriteLine("Selected printer Stats");
                 Console.WriteLine("Printer ID: " + updatedPrinter.PrinterId);
-                Console.WriteLine("Printer Name: " + updatedPrinter.PrinterName);
-                Console.WriteLine("Printer Description: " + updatedPrinter.PrinterDescription);
-                Console.WriteLine("Printer Location: " + updatedPrinter.PrinterLocation);
+                Console.WriteLine("Edit printer name: ");
+                SendKeys.SendWait(updatedPrinter.PrinterName);
+                updatedPrinter.PrinterName = Console.ReadLine();
                 
-                Console.WriteLine("Fill out printer data: ");
-                Console.WriteLine("Input printer Name: ");
-                stringDataInput = Console.ReadLine();
-                updatedPrinter.PrinterName = stringDataInput;
 
-                Console.WriteLine("Input printer Description: ");
+                Console.WriteLine("Edit printer Description: ");
+                SendKeys.SendWait(updatedPrinter.PrinterDescription);
                 updatedPrinter.PrinterDescription = Console.ReadLine();
-                
-                Console.WriteLine("Input printer Location: ");
+
+                Console.WriteLine("Edit printer Location: ");
+                SendKeys.SendWait(updatedPrinter.PrinterLocation);
                 updatedPrinter.PrinterLocation = Console.ReadLine();
+
                 createSuccess = PrinterRepository.UpdatePrinter(updatedPrinter);
                 
                 if (createSuccess == true)

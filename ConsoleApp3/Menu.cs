@@ -82,7 +82,6 @@ namespace ConsoleApp3
                         menuRedrawing();
                         break;
                     case 8:
-
                         Console.WriteLine("Have a good day!");
                         Console.WriteLine("Program  will stop shortly");
 
