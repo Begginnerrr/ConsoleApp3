@@ -19,9 +19,6 @@ namespace ConsoleApp3
         private bool exit = false;
         private bool checkingValue;
         private int commandInput;
-        private int dataInput;
-        private string stringDataInput;
-        private bool createSuccess;
 
         public void drawingMenu()
         {
@@ -31,7 +28,8 @@ namespace ConsoleApp3
             Console.WriteLine("4 - Edit printer Details");
             Console.WriteLine("5 - Delete printer");
             Console.WriteLine("6 - Start Printing");
-            Console.WriteLine("7 - Exit the program");
+            Console.WriteLine("7 - Check printer status");
+            Console.WriteLine("8 - Exit the program");
             Console.WriteLine("Type in the command number into a console: ");
         }
 
@@ -79,6 +77,11 @@ namespace ConsoleApp3
                         break;
 
                     case 7:
+                        PrinterInfoGeter printerInfoGeter = new PrinterInfoGeter();
+                        printerInfoGeter.printerStatus();
+                        menuRedrawing();
+                        break;
+                    case 8:
 
                         Console.WriteLine("Have a good day!");
                         Console.WriteLine("Program  will stop shortly");

@@ -41,19 +41,6 @@ namespace ConsoleApp3.Commands
             {
                 Console.WriteLine("Unexpected error occured");
             }
-
-            /*
-            DirectoryInfo directoryInfo = new DirectoryInfo( Configuration.printerFilesLocation);
-            FileInfo[] Files = directoryInfo.GetFiles("*.g"); //Getting Text files
-            string str = "";
-
-            foreach (FileInfo file in Files)
-            {
-                str = str + ", " + file.Name;
-            }
-            */
-
-
         }
         public void pickingPrintFile()
         {

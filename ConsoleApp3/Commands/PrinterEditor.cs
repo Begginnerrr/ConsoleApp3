@@ -30,6 +30,7 @@ namespace ConsoleApp3.Commands
             updatedPrinter = PrinterRepository.GetPrinterById(dataInput);
             if (updatedPrinter != null)
             {
+
                 Console.WriteLine("Selected printer Stats");
                 Console.WriteLine("Printer ID: " + updatedPrinter.PrinterId);
                 Console.WriteLine("Printer Name: " + updatedPrinter.PrinterName);
@@ -40,11 +41,14 @@ namespace ConsoleApp3.Commands
                 Console.WriteLine("Input printer Name: ");
                 stringDataInput = Console.ReadLine();
                 updatedPrinter.PrinterName = stringDataInput;
+
                 Console.WriteLine("Input printer Description: ");
                 updatedPrinter.PrinterDescription = Console.ReadLine();
+                
                 Console.WriteLine("Input printer Location: ");
                 updatedPrinter.PrinterLocation = Console.ReadLine();
                 createSuccess = PrinterRepository.UpdatePrinter(updatedPrinter);
+                
                 if (createSuccess == true)
                 {
                     Console.WriteLine("This was succesfull");
