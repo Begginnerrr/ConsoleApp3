@@ -46,42 +46,49 @@ namespace ConsoleApp3
                 switch (commandInput)
                 {
                     case 1:
+                        Console.Clear();
                         PrinterLister listAllPrinters = new PrinterLister();
                         listAllPrinters.getallprinters();
                         menuRedrawing();
                         break;
                     case 2:
+                        Console.Clear();
                         PrinterLister listAllPrinters1 = new PrinterLister();
                         listAllPrinters1.listPrinterById();
                         menuRedrawing();
                         break;
                     case 3:
+                        Console.Clear();
                         PrinterAdder printerAdder = new PrinterAdder();
                         printerAdder.addPrinter();
                         menuRedrawing();
                         break;
                     case 4:
+                        Console.Clear();
                         PrinterEditor printerEditor = new PrinterEditor();
                         printerEditor.editPrinter();
                         menuRedrawing();
                         break;
                     case 5:
+                        Console.Clear();
                         PrinterRemover printerRemover = new PrinterRemover();
                         printerRemover.deletePrinter();
                         menuRedrawing();
                         break;
                     case 6:
+                        Console.Clear();
                         PrinterService printerService = new PrinterService();
                         printerService.pickingPrintFile();
                         menuRedrawing();
                         break;
-
                     case 7:
+                        Console.Clear();
                         PrinterInfoGeter printerInfoGeter = new PrinterInfoGeter();
                         printerInfoGeter.printerStatus();
                         menuRedrawing();
                         break;
                     case 8:
+                        Console.Clear();
                         Console.WriteLine("Have a good day!");
                         Console.WriteLine("Program  will stop shortly");
 
@@ -96,7 +103,7 @@ namespace ConsoleApp3
             }
         }
 
-        public void menuRedrawing()
+        private void menuRedrawing()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Press any key to continue...");

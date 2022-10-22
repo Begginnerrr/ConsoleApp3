@@ -16,5 +16,9 @@ namespace ConsoleApp3.ErrorHandling
         {
             Console.WriteLine("Printer Added Succesfully");
         }
+        public static void succesfullyExecutedOperation()
+        {
+            Console.WriteLine("Operation executed successfully");
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ConsoleApp3.Utility;
 
 namespace ConsoleApp3.Commands
 {
@@ -14,34 +15,7 @@ namespace ConsoleApp3.Commands
         private string stringDataInput;
         private bool falsePath = false; 
 
-        private void listingAvailableFilesInDirectory()
-        {
-            try
-            {
-                if(Directory.Exists(Configuration.printerFilesLocation))
-                {
-
-
-                    Console.WriteLine("Listing available files in directory: ");
-                    string[] fileArray = Directory.GetFiles(@Configuration.printerFilesLocation, "*.g");
-                    foreach (string file in fileArray)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine(Path.GetFileName(file));
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("File path doesn't exist, please alter configuration file");
-                    falsePath = true;
-                }
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine("Unexpected error occured");
-            }
-        }
+       
         public void pickingPrintFile()
         {
             listingAvailableFilesInDirectory();
@@ -59,6 +33,33 @@ namespace ConsoleApp3.Commands
                 }
             }
            
+        }
+        private void listingAvailableFilesInDirectory()
+        {
+            try
+            {
+                if (Directory.Exists(Configuration.printerFilesLocation))
+                {
+
+
+                    Console.WriteLine("Listing available files in directory: ");
+                    string[] fileArray = Directory.GetFiles(@Configuration.printerFilesLocation, "*.g");
+                    foreach (string file in fileArray)
+                    {
+                        ColorManger.blueMessage(Path.GetFileName(file));
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File path doesn't exist, please alter configuration file");
+                    falsePath = true;
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Unexpected error occured");
+            }
         }
 
         private void printfile(String fileName)
