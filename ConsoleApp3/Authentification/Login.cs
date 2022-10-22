@@ -1,4 +1,5 @@
-﻿using ConsoleApp3.Repository;
+﻿using ConsoleApp3.ErrorHandling;
+using ConsoleApp3.Repository;
 using ConsoleApp3.Validations;
 using System;
 using System.Collections.Generic;
@@ -22,17 +23,18 @@ namespace ConsoleApp3.Authentification
             while (!checkingLoopValue)
             {
                 Console.WriteLine("Input your name: ");
-                Console.WriteLine("");
                 inputLoginName = Console.ReadLine();
+                
                 Console.WriteLine("Input your password: ");
-                Console.WriteLine("");
                 inputLoginPassword = Console.ReadLine();
                 succesfulAuth = UserRepository.GetUserByCredentials(inputLoginName, inputLoginPassword);
                 if (succesfulAuth == true)
                 {
                     return succesfulAuth;
                 }
-                Console.WriteLine("Credentials are incorect");
+                ErrorMessage.unsuccessfulOperationMessage();
+
+                //  Console.WriteLine("Credentials are incorect");
 
             }
             return false;

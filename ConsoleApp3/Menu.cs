@@ -19,9 +19,6 @@ namespace ConsoleApp3
         private bool exit = false;
         private bool checkingValue;
         private int commandInput;
-        private int dataInput;
-        private string stringDataInput;
-        private bool createSuccess;
 
         public void drawingMenu()
         {
@@ -31,7 +28,8 @@ namespace ConsoleApp3
             Console.WriteLine("4 - Edit printer Details");
             Console.WriteLine("5 - Delete printer");
             Console.WriteLine("6 - Start Printing");
-            Console.WriteLine("7 - Exit the program");
+            Console.WriteLine("7 - Check printer status");
+            Console.WriteLine("8 - Exit the program");
             Console.WriteLine("Type in the command number into a console: ");
         }
 
@@ -48,33 +46,42 @@ namespace ConsoleApp3
                 switch (commandInput)
                 {
                     case 1:
-                        ListAllPrinters listAllPrinters = new ListAllPrinters();
+                        PrinterLister listAllPrinters = new PrinterLister();
                         listAllPrinters.getallprinters();
+                        menuRedrawing();
                         break;
                     case 2:
-                        ListAllPrinters listAllPrinters1 = new ListAllPrinters();
-                        listAllPrinters1.getPrinterById();
+                        PrinterLister listAllPrinters1 = new PrinterLister();
+                        listAllPrinters1.listPrinterById();
+                        menuRedrawing();
                         break;
                     case 3:
                         PrinterAdder printerAdder = new PrinterAdder();
                         printerAdder.addPrinter();
-                        
+                        menuRedrawing();
                         break;
                     case 4:
                         PrinterEditor printerEditor = new PrinterEditor();
                         printerEditor.editPrinter();
+                        menuRedrawing();
                         break;
                     case 5:
                         PrinterRemover printerRemover = new PrinterRemover();
                         printerRemover.deletePrinter();
+                        menuRedrawing();
                         break;
                     case 6:
                         PrinterService printerService = new PrinterService();
                         printerService.pickingPrintFile();
+                        menuRedrawing();
                         break;
 
                     case 7:
-
+                        PrinterInfoGeter printerInfoGeter = new PrinterInfoGeter();
+                        printerInfoGeter.printerStatus();
+                        menuRedrawing();
+                        break;
+                    case 8:
                         Console.WriteLine("Have a good day!");
                         Console.WriteLine("Program  will stop shortly");
 
@@ -87,6 +94,16 @@ namespace ConsoleApp3
                         break;
                 }
             }
+        }
+
+        public void menuRedrawing()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press any key to continue...");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadKey();
+            Console.Clear();
+            drawingMenu();
         }
     }
 }

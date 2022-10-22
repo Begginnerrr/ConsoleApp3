@@ -31,14 +31,14 @@ namespace ConsoleApp3.Commands
             }
             printer.PrinterId = dataInput;
             Console.WriteLine("Input printer Name: ");
-            Console.WriteLine("");
+           
             stringDataInput = Console.ReadLine();
             printer.PrinterName = stringDataInput;
+            
             Console.WriteLine("Input printer Description: ");
-            Console.WriteLine("");
             printer.PrinterDescription = Console.ReadLine();
+           
             Console.WriteLine("Input printer Location: ");
-            Console.WriteLine("");
             printer.PrinterLocation = Console.ReadLine();
             createSuccess = PrinterRepository.CreatePrinter(printer);
             if (createSuccess == true)
