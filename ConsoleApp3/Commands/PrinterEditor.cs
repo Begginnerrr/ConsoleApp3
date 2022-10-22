@@ -1,4 +1,5 @@
 ﻿using ConsoleApp3.Data;
+using ConsoleApp3.ErrorHandling;
 using ConsoleApp3.Repository;
 using ConsoleApp3.Utility;
 using ConsoleApp3.Validations;
@@ -50,11 +51,11 @@ namespace ConsoleApp3.Commands
                 
                 if (createSuccess == true)
                 {
-                    Console.WriteLine("This was succesfull");
+                    SuccesfullErrorMessage.succesfullyExecutedOperation();
                 }
                 else
                 {
-                    Console.WriteLine("Something went wrong");
+                    ErrorMessage.unsuccessfulOperationMessage();
                 }
             }
             else

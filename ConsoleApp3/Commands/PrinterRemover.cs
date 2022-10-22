@@ -1,4 +1,5 @@
-﻿using ConsoleApp3.Repository;
+﻿using ConsoleApp3.ErrorHandling;
+using ConsoleApp3.Repository;
 using ConsoleApp3.Utility;
 using ConsoleApp3.Validations;
 using System;
@@ -29,11 +30,11 @@ namespace ConsoleApp3.Commands
             createSuccess = PrinterRepository.DeletePost(dataInput);
             if (createSuccess == true)
             {
-                Console.WriteLine("This was succesfull");
+                SuccesfullErrorMessage.succesfullyExecutedOperation();
             }
             else
             {
-                Console.WriteLine("Something went wrong");
+                ErrorMessage.unsuccessfulOperationMessage();
             }
         }
     }
