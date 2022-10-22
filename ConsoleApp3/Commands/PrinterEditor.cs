@@ -17,7 +17,6 @@ namespace ConsoleApp3.Commands
     Printer updatedPrinter = new Printer();
     private bool checkingValue = false;
     private int dataInput;
-    private string stringDataInput;
     private bool createSuccess;
     public void editPrinter()
         {
