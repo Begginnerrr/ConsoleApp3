@@ -1,4 +1,5 @@
 ﻿using ConsoleApp3.Repository;
+using ConsoleApp3.Utility;
 using ConsoleApp3.Validations;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ConsoleApp3.Commands
 
         public void deletePrinter()
         {
+            DBItemChecker.getPrinterIdList();
             Console.WriteLine("Input the printers ID: ");
             while (!checkingValue)
             {

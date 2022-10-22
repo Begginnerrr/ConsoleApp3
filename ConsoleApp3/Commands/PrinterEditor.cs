@@ -1,5 +1,6 @@
 ﻿using ConsoleApp3.Data;
 using ConsoleApp3.Repository;
+using ConsoleApp3.Utility;
 using ConsoleApp3.Validations;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace ConsoleApp3.Commands
     private bool createSuccess;
     public void editPrinter()
         {
-
+            DBItemChecker.getPrinterIdList();
             Console.WriteLine("Input the printers ID: ");
             while (!checkingValue)
             {

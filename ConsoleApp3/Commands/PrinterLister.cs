@@ -61,6 +61,6 @@ namespace ConsoleApp3.Commands
             {
                 Console.WriteLine("Printer doesn't exist");
             }
-            }
-}
+        }   
+    }
 }
