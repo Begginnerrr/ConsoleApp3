@@ -46,7 +46,7 @@ namespace ConsoleApp3.Commands
                     string[] fileArray = Directory.GetFiles(@Configuration.printerFilesLocation, "*.g");
                     foreach (string file in fileArray)
                     {
-                        ColorManger.blueMessage(Path.GetFileName(file));
+                        ColorManager.blueMessage(Path.GetFileName(file));
 
                     }
                 }

@@ -1,4 +1,5 @@
 ﻿using ConsoleApp3.Data;
+using ConsoleApp3.ErrorHandling;
 using ConsoleApp3.Repository;
 using ConsoleApp3.Validations;
 using System;
@@ -43,11 +44,11 @@ namespace ConsoleApp3.Commands
             createSuccess = PrinterRepository.CreatePrinter(printer);
             if (createSuccess == true)
             {
-                Console.WriteLine("This was succesfull");
+                SuccesfullErrorMessage.printSuccesfullOperationMessage();
             }
             else
             {
-                Console.WriteLine("Something went wrong");
+                ErrorMessage.unsuccessfulOperationMessage();
             }
         }
 

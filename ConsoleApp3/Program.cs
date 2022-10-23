@@ -19,8 +19,6 @@ using ConsoleApp3.Authentification;
 //MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
 
 bool succesfullLogin = false;
-
-Console.WriteLine("Hello, World!");
 succesfullLogin = Login.authenticateUser();
 if (succesfullLogin)
 {
