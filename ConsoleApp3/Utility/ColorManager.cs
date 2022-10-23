@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Utility
 {
-    public static class ColorManger
+    public static class ColorManager
     {
         public static void blueMessage(string s){
             Console.ForegroundColor = ConsoleColor.Blue;

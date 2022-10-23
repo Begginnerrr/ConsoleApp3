@@ -1,5 +1,6 @@
 ﻿using ConsoleApp3.ErrorHandling;
 using ConsoleApp3.Repository;
+using ConsoleApp3.Utility;
 using ConsoleApp3.Validations;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace ConsoleApp3.Authentification
 
         public static bool authenticateUser()
         {
-            
+           
             while (!checkingLoopValue)
             {
                 Console.Clear();
@@ -35,7 +36,8 @@ namespace ConsoleApp3.Authentification
                  UserRole.adminRole = UserRepository.GetUserRoleByCredetials(inputLoginName,inputLoginPassword);
                  return succesfulAuth;
                 }
-                ErrorMessage.unsuccessfulOperationMessage();
+                ColorManager.redMessage("Login credentials are incorrect");
+                Thread.Sleep(3000);
 
                 //  Console.WriteLine("Credentials are incorect");
 
