@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ConsoleApp3.Repository
 {
@@ -51,6 +52,27 @@ namespace ConsoleApp3.Repository
             }
         }
 
+        internal static bool GetUserRoleByCredetials(string UserName, string pass)
+        {
+
+            try
+            {
+                using (var db = new PrinterManagementContext())
+                {
+                    var result = db.Users.Where(p => p.name == UserName && p.password == pass);
+                    
+                    if (result.Count() == 1) {
+                        User user = result.FirstOrDefault();
+                        return user.isAdmin;
+                    } 
+                    else return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
         internal static bool CreateUser(User userToAdd)
         {

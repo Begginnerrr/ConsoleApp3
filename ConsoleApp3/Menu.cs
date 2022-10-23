@@ -1,4 +1,5 @@
-﻿using ConsoleApp3.Commands;
+﻿using ConsoleApp3.Authentification;
+using ConsoleApp3.Commands;
 using ConsoleApp3.Data;
 using ConsoleApp3.Repository;
 using System;
@@ -59,20 +60,41 @@ namespace ConsoleApp3
                         break;
                     case 3:
                         Console.Clear();
-                        PrinterAdder printerAdder = new PrinterAdder();
-                        printerAdder.addPrinter();
+                        if (UserRole.adminRole == false)
+                        {
+                            Console.WriteLine("You don't have permision for this action");
+                        }
+                        else
+                        {
+                            PrinterAdder printerAdder = new PrinterAdder();
+                            printerAdder.addPrinter();
+                        }
                         menuRedrawing();
                         break;
                     case 4:
                         Console.Clear();
-                        PrinterEditor printerEditor = new PrinterEditor();
-                        printerEditor.editPrinter();
+                        if (UserRole.adminRole == false)
+                        {
+                            Console.WriteLine("You don't have permision for this action");
+                        }
+                        else
+                        {
+                            PrinterEditor printerEditor = new PrinterEditor();
+                            printerEditor.editPrinter();
+                        }                      
                         menuRedrawing();
                         break;
                     case 5:
                         Console.Clear();
-                        PrinterRemover printerRemover = new PrinterRemover();
-                        printerRemover.deletePrinter();
+                        if (UserRole.adminRole == false)
+                        {
+                            Console.WriteLine("You don't have permision for this action");
+                        }
+                        else
+                        {
+                            PrinterRemover printerRemover = new PrinterRemover();
+                            printerRemover.deletePrinter();
+                        }
                         menuRedrawing();
                         break;
                     case 6:
