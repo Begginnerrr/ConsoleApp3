@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using ConsoleApp2;
+using ConsoleAppContext;
 using ConsoleApp3;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,9 +14,6 @@ using Microsoft.VisualBasic;
 using ConsoleApp3.Repository;
 using ConsoleApp3.Authentification;
 
-
-
-//MysqlEntityFrameworkDesignTimeServices abc = new MysqlEntityFrameworkDesignTimeServices();
 
 bool succesfullLogin = false;
 succesfullLogin = Login.authenticateUser();
