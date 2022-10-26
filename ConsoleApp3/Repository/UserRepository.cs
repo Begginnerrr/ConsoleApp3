@@ -63,6 +63,7 @@ namespace ConsoleApp3.Repository
                     
                     if (result.Count() == 1) {
                         User user = result.FirstOrDefault();
+                        if (user == null) return false;
                         return user.isAdmin;
                     } 
                     else return false;
