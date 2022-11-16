@@ -15,7 +15,7 @@ namespace ConsoleApp3.Commands
         private string stringDataInput;
         private bool falsePath = false;
         private DateTime startingtime = DateTime.Now;
-        private long timeremaining;
+        private float timeRemainingSeconds;
         private DateTime endingtime;
         private bool timeup = false;
 
@@ -82,18 +82,13 @@ namespace ConsoleApp3.Commands
             Console.WriteLine("Starting to print");
             Thread.Sleep(50);
             Console.WriteLine("Printing");
-            Thread.Sleep(400);
-            while (timeup ==false)
-            { 
-                timeremaining = (long)(endingtime - startingtime).TotalSeconds;
-                if (timeremaining > 0)
-                {
-                    Console.WriteLine("Time remaining " + timeremaining);
-                }
-                else
-                {
-                    timeup = true;
-                }
+
+            while (!timeup)
+            {
+                timeRemainingSeconds = (float)(endingtime - startingtime).TotalSeconds;
+                if (timeRemainingSeconds > 0)  Console.WriteLine("Time remaining " + timeRemainingSeconds);
+                
+                else   break;
                 startingtime = DateTime.Now;
                 Thread.Sleep(5000);
             }

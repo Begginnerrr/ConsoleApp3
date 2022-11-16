@@ -16,8 +16,7 @@ using ConsoleApp3.Authentification;
 
 
 bool succesfullLogin = false;
-//succesfullLogin = Login.authenticateUser();
-succesfullLogin = true;
+succesfullLogin = Login.authenticateUser();
 if (succesfullLogin)
 {
     Console.Clear();
