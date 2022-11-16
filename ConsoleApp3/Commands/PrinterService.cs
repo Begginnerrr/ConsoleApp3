@@ -13,7 +13,11 @@ namespace ConsoleApp3.Commands
     public class PrinterService
     {
         private string stringDataInput;
-        private bool falsePath = false; 
+        private bool falsePath = false;
+        private DateTime startingtime = DateTime.Now;
+        private float timeRemainingSeconds;
+        private DateTime endingtime;
+        private bool timeup = false;
 
        
         public void pickingPrintFile()
@@ -36,6 +40,7 @@ namespace ConsoleApp3.Commands
         }
         private void listingAvailableFilesInDirectory()
         {
+
             try
             {
                 if (Directory.Exists(Configuration.printerFilesLocation))
@@ -64,11 +69,29 @@ namespace ConsoleApp3.Commands
 
         private void printfile(String fileName)
         {
+            try
+            {
+                PrinterProgress printerProgress = new PrinterProgress();
+                DateTime.TryParse(printerProgress.askPrinterEndingTime(), out endingtime); 
+            }
+            catch (NullReferenceException ex) {
+                Console.WriteLine("An error has been thrown" + ex);
+            }
+
             Console.WriteLine("File detected: " + fileName);
             Console.WriteLine("Starting to print");
             Thread.Sleep(50);
             Console.WriteLine("Printing");
-            Thread.Sleep(400);
+
+            while (!timeup)
+            {
+                timeRemainingSeconds = (float)(endingtime - startingtime).TotalSeconds;
+                if (timeRemainingSeconds > 0)  Console.WriteLine("Time remaining " + timeRemainingSeconds);
+                
+                else   break;
+                startingtime = DateTime.Now;
+                Thread.Sleep(5000);
+            }
             Console.WriteLine("Printing complete");
         }
     }
