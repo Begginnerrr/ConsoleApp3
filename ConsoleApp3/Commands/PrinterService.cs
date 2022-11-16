@@ -23,7 +23,7 @@ namespace ConsoleApp3.Commands
             {
                 Console.WriteLine("Enter File name: ");
                 stringDataInput = Console.ReadLine();
-                if (stringDataInput != null && File.Exists(Configuration.printerFilesLocation + stringDataInput + ".g"))
+                if (stringDataInput != null && File.Exists(Configuration.GetPrinterFilesPath() + stringDataInput + ".g"))
                 {
                     printfile(stringDataInput);
                 }
@@ -38,12 +38,12 @@ namespace ConsoleApp3.Commands
         {
             try
             {
-                if (Directory.Exists(Configuration.printerFilesLocation))
+                if (Directory.Exists(Configuration.GetPrinterFilesPath()))
                 {
 
 
                     Console.WriteLine("Listing available files in directory: ");
-                    string[] fileArray = Directory.GetFiles(@Configuration.printerFilesLocation, "*.g");
+                    string[] fileArray = Directory.GetFiles(@Configuration.GetPrinterFilesPath(), "*.g");
                     foreach (string file in fileArray)
                     {
                         ColorManager.blueMessage(Path.GetFileName(file));

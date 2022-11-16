@@ -42,7 +42,7 @@ namespace ConsoleAppContext
         {
             optionsBuilder
                 .UseMySQL(
-                    Configuration.dbConnectionString);
+                    Configuration.GetDBConnectionData());
         }
 
         //  protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=AppDB.db");
