@@ -6,14 +6,21 @@ namespace ConsoleApp3.AppConfiguration
 {
     public static class Configuration
     {
-        string dbConnectionString = "server=localhost;user=root;database=PrinterManagementSystemDB;password=metadata1;port=3306";
-        string printerFilesLocation = "C:\\Users\\Nebula\\Desktop\\ProjectOnTheFly\\ConsoleApp3\\ConsoleApp3\\Printer Files\\";
+        static string dbConnectionString = "server=localhost;user=root;database=PrinterManagementSystemDB;password=metadata1;port=3306";
+        static string printerFilesLocation = "C:\\Users\\Nebula\\Desktop\\ProjectOnTheFly\\ConsoleApp3\\ConsoleApp3\\Printer Files\\";
 
-        static string configFilename = "config.ini";
+        readonly static string configFilename = "config.ini";
 
-        public Configuration()
+        public static Configuration()
         {
             string execPath = Assembly.GetEntryAssembly().Location;
+
+            if (execPath == "" || execPath == null)
+            {
+                Console.WriteLine("Failed to locate .exe path!\n");
+                return; 
+            }
+
             string path = execPath + "\\..\\" + configFilename;
 
             if (File.Exists(path))
@@ -22,36 +29,55 @@ namespace ConsoleApp3.AppConfiguration
                 CreateConfigFile(path);
         }
 
-        public string GetDBConnectionData()
+        public static string GetDBConnectionData()
         {
             return dbConnectionString;
         }
 
-        public string GetPrinterFilesPath()
+        public static string GetPrinterFilesPath()
         {
             return printerFilesLocation;
         }
 
-        void CreateConfigFile(string path)
+        static void CreateConfigFile(string path)
         {
-            StreamWriter write = new StreamWriter(path);
+            StreamWriter write;
+            try
+            {
+                write = new StreamWriter(path);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex + "\n");
+                return;
+            }
 
             write.Write(dbConnectionString);
 
             write.Close();
         }
 
-        void ReadConfig(string path)
+        static void ReadConfig(string path)
         {
-            StreamReader read = new StreamReader(path);
+            StreamReader read;
+            try
+            {
+                read = new StreamReader(path);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex + "\n");
+                return;
+            }
 
             string allData = read.ReadToEnd();
 
             read.Close();
 
-            string[] seps = { "\r\n", "\n" };
-            string[] lines = allData.Split(seps, StringSplitOptions.RemoveEmptyEntries);
+            string[] seperators = { "\r\n", "\n" };
+            string[] lines = allData.Split(seperators, StringSplitOptions.RemoveEmptyEntries);
 
+            // Check if we have enough lines for config data
             if (lines.Length < 5)
                 return;
 
