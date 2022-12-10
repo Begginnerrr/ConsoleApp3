@@ -27,7 +27,7 @@ namespace ConsoleApp3.Commands
             {
                 checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
-                checkingValue = RangeValidation.validate(dataInput);
+                checkingValue = validate(dataInput);
             }
             updatedPrinter = PrinterRepository.GetPrinterById(dataInput);
             if (updatedPrinter != null)
@@ -63,5 +63,11 @@ namespace ConsoleApp3.Commands
                 Console.WriteLine("Printer doesn't exist");
             }
         }
+        private static bool validate(int number, int minRange = 0, int MaxRange = int.MaxValue)
+        {
+            if (number > minRange && number < MaxRange) { return true; }
+            else { return false; }
+        }
     }
+   
 }
