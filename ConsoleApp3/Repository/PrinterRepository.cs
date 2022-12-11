@@ -36,6 +36,14 @@ namespace ConsoleApp3.Repository
                 return printerTOreturn;
             }
         }
+        internal static Printer RandomPrinterFromOffice(string office) {
+            using (var db = new PrinterManagementContext())
+            {
+                Printer printer = db.Printers.FirstOrDefault(p => p.PrinterLocation == office);
+                return printer;
+            }
+        }
+
         internal static bool CreatePrinter(Printer printerToAdd)
         {
             using (var db = new PrinterManagementContext())
