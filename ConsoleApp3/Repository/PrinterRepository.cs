@@ -28,6 +28,14 @@ namespace ConsoleApp3.Repository
             }
         }
 
+        internal static List<Printer>GetPrinterByOffice(string office)
+        {
+            using (var db = new PrinterManagementContext())
+            {
+                List<Printer> printerTOreturn = db.Printers.Where(p => p.PrinterLocation == office).ToList();
+                return printerTOreturn;
+            }
+        }
         internal static bool CreatePrinter(Printer printerToAdd)
         {
             using (var db = new PrinterManagementContext())

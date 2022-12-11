@@ -54,7 +54,6 @@ namespace ConsoleApp3.Repository
 
         internal static bool GetUserRoleByCredetials(string UserName, string pass)
         {
-
             try
             {
                 using (var db = new PrinterManagementContext())
