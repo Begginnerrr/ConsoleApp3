@@ -40,9 +40,10 @@ namespace ConsoleAppContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-                .UseMySQL(
-                    Configuration.dbConnectionString);
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+            optionsBuilder.UseMySql(Configuration.dbConnectionString, serverVersion);
+
+            //optionsBuilder.UseMySQL( Configuration.dbConnectionString);
         }
 
         //  protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=AppDB.db");

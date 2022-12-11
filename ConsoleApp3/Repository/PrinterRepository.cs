@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MySqlX.XDevAPI.Common;
 
 namespace ConsoleApp3.Repository
 {
@@ -41,6 +42,17 @@ namespace ConsoleApp3.Repository
             {
                 Printer printer = db.Printers.FirstOrDefault(p => p.PrinterLocation == office);
                 return printer;
+            }
+        }
+
+        internal static bool DoesPrinterExistInOffice(string office)
+        {
+            using (var db = new PrinterManagementContext())
+            {
+                var printerToEvaluate = db.Printers.Where(p => p.PrinterLocation == office);
+                if (printerToEvaluate.Count() == 1) return true;
+                else return false;
+               
             }
         }
 

@@ -13,6 +13,7 @@ using ConsoleApp3.Data;
 using Microsoft.VisualBasic;
 using ConsoleApp3.Repository;
 using ConsoleApp3.Authentification;
+using Pomelo.EntityFrameworkCore;
 
 
 bool succesfullLogin = false;
@@ -43,8 +44,9 @@ IHost hostBuilder = Host.CreateDefaultBuilder(args)
     })
     .ConfigureServices((context, services) =>
     {
+        var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
         var cns = context.Configuration.GetConnectionString("server=localhost;user=root;database=PrinterManagementSystemDB;password=root;port=3306");
-        services.AddDbContext<PrinterManagementContext>(options => options.UseMySQL("server=localhost;user=root;database=PrinterManagementSystemDB;password=root;port=3306"));
+        services.AddDbContext<PrinterManagementContext>(options => options.UseMySql("server=localhost;user=root;database=PrinterManagementSystemDB;password=root;port=3306",serverVersion));
        
     })
     .Build();
