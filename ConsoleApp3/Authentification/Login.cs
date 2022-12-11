@@ -20,7 +20,6 @@ namespace ConsoleApp3.Authentification
 
         public static bool authenticateUser()
         {
-           
             while (!checkingLoopValue)
             {
                 Console.Clear();
@@ -31,20 +30,17 @@ namespace ConsoleApp3.Authentification
                 Console.WriteLine("Input your password: ");
                 inputLoginPassword = Console.ReadLine();
                 succesfulAuth = UserRepository.GetUserByCredentials(inputLoginName, inputLoginPassword);
-                if (succesfulAuth == true)
+
+                if (succesfulAuth)
                 {
-                 UserRole.adminRole = UserRepository.GetUserRoleByCredetials(inputLoginName,inputLoginPassword);
-                 return succesfulAuth;
+                    UserRole.SetAdminRole(UserRepository.GetUserRoleByCredetials(inputLoginName, inputLoginPassword));
+                    return succesfulAuth;
                 }
                 ColorManager.redMessage("Login credentials are incorrect");
                 Thread.Sleep(3000);
 
-                //  Console.WriteLine("Credentials are incorect");
-
             }
             return false;
         }
-
-        
     }
 }

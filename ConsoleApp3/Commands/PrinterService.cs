@@ -12,25 +12,19 @@ namespace ConsoleApp3.Commands
     
     public class PrinterService
     {
-        private string stringDataInput;
         private bool falsePath = false; 
 
-       
         public void pickingPrintFile()
         {
             listingAvailableFilesInDirectory();
-            if (falsePath == false)
+            if (!falsePath)
             {
                 Console.WriteLine("Enter File name: ");
-                stringDataInput = Console.ReadLine();
+                string stringDataInput = Console.ReadLine();
                 if (stringDataInput != null && File.Exists(Configuration.printerFilesLocation + stringDataInput + ".g"))
-                {
                     printfile(stringDataInput);
-                }
                 else
-                {
                     Console.WriteLine("File doesn't exist");
-                }
             }
            
         }
@@ -56,9 +50,9 @@ namespace ConsoleApp3.Commands
                     falsePath = true;
                 }
             }
-            catch (IOException e)
+            catch (IOException exception)
             {
-                Console.WriteLine("Unexpected error occured");
+                Console.WriteLine("Unexpected error occured " + exception.ToString());
             }
         }
 
