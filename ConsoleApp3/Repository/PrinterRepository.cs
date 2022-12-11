@@ -45,14 +45,18 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static bool DoesPrinterExistInOffice(string office)
+        internal static bool SinglePrinterExistInOffice(string office)
         {
             using (var db = new PrinterManagementContext())
             {
                 var printerToEvaluate = db.Printers.Where(p => p.PrinterLocation == office);
-                if (printerToEvaluate.Count() == 1) return true;
+                if (printerToEvaluate.Count() == 1)
+                {
+                   Printer printer = printerToEvaluate.FirstOrDefault();
+                    return printer.IsAvailable;
+                }
                 else return false;
-               
+
             }
         }
 
