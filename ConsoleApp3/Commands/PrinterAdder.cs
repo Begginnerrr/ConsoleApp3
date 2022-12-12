@@ -13,28 +13,31 @@ namespace ConsoleApp3.Commands
 {
     public class PrinterAdder
     {
-        Printer printer = new Printer();
-        private bool checkingValue = false;
-        private int dataInput;
-        private string stringDataInput;
-        private bool createSuccess;
-
-
         public void addPrinter()
         {
+            bool checkingValue = false;
+            int dataInput = 0;
+
             Console.WriteLine("Fill out the printer data");
+
             while (!checkingValue)
             {
                 Console.WriteLine("Input the printers ID: ");
+
                 checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
+
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
                 checkingValue = ValidateNumberInput.validate(dataInput);
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
+
             }
+
+            Printer printer = new Printer();
+
             printer.PrinterId = dataInput;
             Console.WriteLine("Input printer Name: ");
-           
-            stringDataInput = Console.ReadLine();
+
+            string stringDataInput = Console.ReadLine();
             printer.PrinterName = stringDataInput;
             
             Console.WriteLine("Input printer Description: ");
@@ -42,15 +45,13 @@ namespace ConsoleApp3.Commands
            
             Console.WriteLine("Input printer Location: ");
             printer.PrinterLocation = Console.ReadLine();
-            createSuccess = PrinterRepository.CreatePrinter(printer);
+
+            bool createSuccess = PrinterRepository.CreatePrinter(printer);
+
             if (createSuccess == true)
-            {
                 SuccesfullErrorMessage.printSuccesfullOperationMessage();
-            }
             else
-            {
                 ErrorMessage.unsuccessfulOperationMessage();
-            }
         }
         
     }

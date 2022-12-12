@@ -36,92 +36,98 @@ namespace ConsoleApp3
 
         public void startProgram()
         {
-
             while (exit == false)
+                GetUserCommand();
+        }
+
+        void GetUserCommand()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Input the command: ");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            checkingValue = int.TryParse(Console.ReadLine(), out commandInput);
+            if (!checkingValue) 
+                Console.WriteLine("Invalid value entered");
+
+            Console.Clear();
+
+            ProcessCommand(commandInput);
+        }
+
+        void ProcessCommand(int commandInput)
+        {
+            switch (commandInput)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Input the command: ");
-                Console.ForegroundColor = ConsoleColor.White;
-                checkingValue = int.TryParse(Console.ReadLine(), out commandInput);
-                if (!checkingValue) Console.WriteLine("Invalid value entered");
-                switch (commandInput)
-                {
-                    case 1:
-                        Console.Clear();
-                        PrinterLister listAllPrinters = new PrinterLister();
-                        listAllPrinters.getallprinters();
-                        menuRedrawing();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        PrinterLister listAllPrinters1 = new PrinterLister();
-                        listAllPrinters1.listPrinterById();
-                        menuRedrawing();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        if (UserRole.adminRole == false)
-                        {
-                            Console.WriteLine("You don't have permision for this action");
-                        }
-                        else
-                        {
-                            PrinterAdder printerAdder = new PrinterAdder();
-                            printerAdder.addPrinter();
-                        }
-                        menuRedrawing();
-                        break;
-                    case 4:
-                        Console.Clear();
-                        if (UserRole.adminRole == false)
-                        {
-                            Console.WriteLine("You don't have permision for this action");
-                        }
-                        else
-                        {
-                            PrinterEditor printerEditor = new PrinterEditor();
-                            printerEditor.editPrinter();
-                        }                      
-                        menuRedrawing();
-                        break;
-                    case 5:
-                        Console.Clear();
-                        if (UserRole.adminRole == false)
-                        {
-                            Console.WriteLine("You don't have permision for this action");
-                        }
-                        else
-                        {
-                            PrinterRemover printerRemover = new PrinterRemover();
-                            printerRemover.deletePrinter();
-                        }
-                        menuRedrawing();
-                        break;
-                    case 6:
-                        Console.Clear();
-                        PrinterService printerService = new PrinterService();
-                        printerService.pickingPrintFile();
-                        menuRedrawing();
-                        break;
-                    case 7:
-                        Console.Clear();
-                        PrinterInfoGeter printerInfoGeter = new PrinterInfoGeter();
-                        printerInfoGeter.printerStatus();
-                        menuRedrawing();
-                        break;
-                    case 8:
-                        Console.Clear();
-                        Console.WriteLine("Have a good day!");
-                        Console.WriteLine("Program  will stop shortly");
+                case 1:
+                    PrinterLister listAllPrinters = new PrinterLister();
+                    listAllPrinters.getallprinters();
+                    menuRedrawing();
+                    break;
 
-                        exit = true;
-                        Thread.Sleep(200);
+                case 2:
+                    PrinterLister listAllPrinters1 = new PrinterLister();
+                    listAllPrinters1.listPrinterById();
+                    menuRedrawing();
+                    break;
 
-                        break;
-                    default:
-                        Console.WriteLine("Selected command doesn't exist");
-                        break;
-                }
+                case 3:
+                    if (!UserRole.GetAdminRole())
+                        Console.WriteLine("You don't have permision for this action");
+                    else
+                    {
+                        PrinterAdder printerAdder = new PrinterAdder();
+                        printerAdder.addPrinter();
+                    }
+                    menuRedrawing();
+                    break;
+
+                case 4:
+                    if (!UserRole.GetAdminRole())
+                        Console.WriteLine("You don't have permision for this action");
+                    else
+                    {
+                        PrinterEditor printerEditor = new PrinterEditor();
+                        printerEditor.editPrinter();
+                    }
+                    menuRedrawing();
+                    break;
+
+                case 5:
+                    if (!UserRole.GetAdminRole())
+                        Console.WriteLine("You don't have permision for this action");
+                    else
+                    {
+                        PrinterRemover printerRemover = new PrinterRemover();
+                        printerRemover.deletePrinter();
+                    }
+                    menuRedrawing();
+                    break;
+
+                case 6:
+                    PrinterService printerService = new PrinterService();
+                    printerService.pickingPrintFile();
+                    menuRedrawing();
+                    break;
+
+                case 7:
+                    PrinterInfoGeter printerInfoGeter = new PrinterInfoGeter();
+                    printerInfoGeter.printerStatus();
+                    menuRedrawing();
+                    break;
+
+                case 8:
+                    Console.WriteLine("Have a good day!");
+                    Console.WriteLine("Program  will stop shortly");
+
+                    exit = true;
+                    Thread.Sleep(200);
+
+                    break;
+
+                default:
+                    Console.WriteLine("Selected command doesn't exist");
+                    break;
             }
         }
 
