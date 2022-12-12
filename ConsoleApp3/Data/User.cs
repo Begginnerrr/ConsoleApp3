@@ -10,9 +10,9 @@ namespace ConsoleApp3.Data
     public class User
     {
         [Key]
-        public int userId { get; set; }
-        public string name { get; set; }
-        public string password { get; set; }
+        public int? userId { get; set; }
+        public string? name { get; set; }
+        public string? password { get; set; }
         public bool isAdmin { get; set; }
        // private List<Printer> printers { get; set; }
 
