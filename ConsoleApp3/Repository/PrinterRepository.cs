@@ -53,6 +53,7 @@ namespace ConsoleApp3.Repository
                 if (printerToEvaluate.Count() == 1)
                 {
                    Printer printer = printerToEvaluate.FirstOrDefault();
+                    if(printer == null ) return false;
                     return printer.IsAvailable;
                 }
                 else return false;
@@ -72,6 +73,7 @@ namespace ConsoleApp3.Repository
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex);
                     return false;
                 }
             }
@@ -90,6 +92,7 @@ namespace ConsoleApp3.Repository
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex);
                     return false;
                 }
             }
@@ -110,6 +113,7 @@ namespace ConsoleApp3.Repository
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex);
                     return false;
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using ConsoleApp3.Data;
 using ConsoleApp3.Repository;
+using ConsoleApp3.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,8 @@ namespace ConsoleApp3.Commands
             {
                 checkingValue = int.TryParse(Console.ReadLine(), out dataInput);
                 if (!checkingValue) Console.WriteLine("Invalid value entered");
-                checkingValue =validate(dataInput);
+                checkingValue = ValidateNumberInput.validate(dataInput);
+                if (!checkingValue) Console.WriteLine("Invalid value entered");
             }
             Printer print = PrinterRepository.GetPrinterById(dataInput);
             if (print != null)
@@ -60,11 +62,6 @@ namespace ConsoleApp3.Commands
             {
                 Console.WriteLine("Printer doesn't exist");
             }
-        }
-        private static bool validate(int number, int minRange = 0, int MaxRange = int.MaxValue)
-        {
-            if (number > minRange && number < MaxRange) { return true; }
-            else { return false; }
         }
     }
 }
