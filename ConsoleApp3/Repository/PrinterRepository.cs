@@ -11,9 +11,9 @@ using MySqlX.XDevAPI.Common;
 
 namespace ConsoleApp3.Repository
 {
-    internal static class PrinterRepository
+    public static class PrinterRepository
     {
-        internal static List<Printer> GetPrinters()
+        public static List<Printer> GetPrinters()
         {
             using (var db = new PrinterManagementContext())
             {
@@ -21,7 +21,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static Printer GetPrinterById(int postId)
+        public static Printer GetPrinterById(int postId)
         {
             using (var db = new PrinterManagementContext())
             {
@@ -29,7 +29,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static List<Printer>GetPrinterByOffice(string office)
+        public static List<Printer>GetPrinterByOffice(string office)
         {
             using (var db = new PrinterManagementContext())
             {
@@ -37,7 +37,7 @@ namespace ConsoleApp3.Repository
                 return printerTOreturn;
             }
         }
-        internal static Printer RandomPrinterFromOffice(string office) {
+        public static Printer RandomPrinterFromOffice(string office) {
             using (var db = new PrinterManagementContext())
             {
                 Printer printer = db.Printers.FirstOrDefault(p => p.PrinterLocation == office);
@@ -45,7 +45,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static bool SinglePrinterExistInOffice(string office)
+        public static bool SinglePrinterExistInOffice(string office)
         {
             using (var db = new PrinterManagementContext())
             {
@@ -61,7 +61,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static bool CreatePrinter(Printer printerToAdd)
+        public static bool CreatePrinter(Printer printerToAdd)
         {
             using (var db = new PrinterManagementContext())
             {
@@ -79,7 +79,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static bool UpdatePrinter(Printer printerToUpdate)
+        public static bool UpdatePrinter(Printer printerToUpdate)
         {
             using (var db = new PrinterManagementContext())
             {
@@ -98,7 +98,7 @@ namespace ConsoleApp3.Repository
             }
         }
 
-        internal static bool DeletePost(int printerId)
+        public static bool DeletePost(int printerId)
         {
             using (var db = new PrinterManagementContext())
             {
