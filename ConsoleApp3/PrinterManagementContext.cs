@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleAppContext
@@ -44,6 +45,31 @@ namespace ConsoleAppContext
             optionsBuilder.UseMySql(Configuration.dbConnectionString, serverVersion);
 
             //optionsBuilder.UseMySQL( Configuration.dbConnectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            #region BlogSeed
+            for(int i=1; i < 1000; i++)
+            {
+                User user = new User();
+                user.userId = i + 10;
+                user.name = "user" + i.ToString() + 10;
+                user.password = "user" + i.ToString() + 10;
+                user.isAdmin = false;
+                modelBuilder.Entity<User>().HasData(user);
+            }
+            for (int i = 1; i < 1000; i++)
+            {
+                Printer printer = new Printer();
+                printer.PrinterId = i + 10;
+                printer.PrinterDescription = "This is printer";
+                printer.PrinterName = "Printer" + i.ToString();
+                printer.PrinterLocation = "Office" + i.ToString();
+                printer.IsAvailable = true;
+                modelBuilder.Entity<Printer>().HasData(printer);
+            }
+            #endregion
         }
 
         //  protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=AppDB.db");

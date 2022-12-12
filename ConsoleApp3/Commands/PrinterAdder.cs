@@ -1,7 +1,6 @@
 ﻿using ConsoleApp3.Data;
 using ConsoleApp3.ErrorHandling;
 using ConsoleApp3.Repository;
-using ConsoleApp3.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

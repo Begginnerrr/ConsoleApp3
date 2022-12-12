@@ -1,2 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="ConsoleApp3.AppConfiguration.Configuration">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppConfiguration\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Authentification.Login">
+    <Position X="2" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAAAAABAAAAAAAAAAAAAKAAAAAAAAAAA=</HashCode>
+      <FileName>Authentification\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Authentification.UserRole">
+    <Position X="10.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentification\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterAdder">
+    <Position X="9.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAQAAgIAAAAAAEAAAAAAQAAAAE=</HashCode>
+      <FileName>Commands\PrinterAdder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterEditor">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABIAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAYAAAAA=</HashCode>
+      <FileName>Commands\PrinterEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterInfoGeter">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAA=</HashCode>
+      <FileName>Commands\PrinterInfoGeter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterLister">
+    <Position X="2" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAEAA=</HashCode>
+      <FileName>Commands\PrinterLister.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterRemover">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAQAgAAAAAAAEAAAAAAQAAAAA=</HashCode>
+      <FileName>Commands\PrinterRemover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Commands.PrinterService">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAQAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Commands\PrinterService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Data.Printer">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAIABAAA=</HashCode>
+      <FileName>Data\Printer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Data.User">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAEAAgAAAAAAgAAAAA=</HashCode>
+      <FileName>Data\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.ErrorHandling.ErrorMessage">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorHandling\ErrorMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.ErrorHandling.SuccesfullErrorMessage">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAACAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorHandling\SuccesfullErrorMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Repository.PrinterRepository">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACAAAAAAAAAAAAAAAAAAAAAAAAQAAwAAQAAAgACAAA=</HashCode>
+      <FileName>Repository\PrinterRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Repository.UserRepository">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAIAQAAAAAEAAAAAAAEAQAAAAAAAAAARAAAAAA=</HashCode>
+      <FileName>Repository\UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Utility.ColorManager">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\ColorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Utility.DBItemChecker">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\DBItemChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.Menu">
+    <Position X="0.5" Y="1" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleAppContext.PrinterManagementContext">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAQAAAAAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>PrinterManagementContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp3.DrawMenu">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAIAAAAAAAAAAAAAAEAAABAICAAAAA=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
