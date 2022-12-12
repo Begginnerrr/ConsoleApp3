@@ -11,10 +11,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    internal class Menu
-    {
-    }
-
+    
     public class DrawMenu {
 
         private bool exit = false;
