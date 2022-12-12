@@ -5,12 +5,12 @@ namespace ConsoleApp3.Authentification
     {
         private static bool adminRole = false;
 
-        public bool GetAdminRole()
+        public static bool GetAdminRole()
         {
             return adminRole;
         }
 
-        public void SetAdminRole(bool role)
+        public static void SetAdminRole(bool role)
         {
             adminRole = role;
         }

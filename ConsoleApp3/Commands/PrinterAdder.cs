@@ -15,7 +15,7 @@ namespace ConsoleApp3.Commands
         public void addPrinter()
         {
             bool checkingValue = false;
-            int dataInput;
+            int dataInput = 0;
 
             Console.WriteLine("Fill out the printer data");
 
